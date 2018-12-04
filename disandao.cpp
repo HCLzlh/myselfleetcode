@@ -12,8 +12,8 @@ public:
         vector<int> dict(256, -1);
         int maxLen = 0, start = -1;
         for (int i = 0; i != s.length(); i++) {
-            if (dict[s[i]] > start)
-                start = dict[s[i]];
+            if (dict[s[i]] > start)//start做为标尺，当大于的时候说明已经出现过这个字符
+                start = dict[s[i]];//重置滑动窗口的起点
             dict[s[i]] = i;
             maxLen = max(maxLen, i - start);
         }
